@@ -34,7 +34,6 @@ export function Movie({
     listStore.movies.find((item) => item.id == data.id);
 
   function handlePointerDown(event: PointerEvent<HTMLDivElement>) {
-    // Ignora o botão direito do mouse
     if (event.button !== 0) return;
 
     longPressRef.current = false;
@@ -53,7 +52,6 @@ export function Movie({
   }
 
   function handleClickCapture(event: MouseEvent<HTMLDivElement>) {
-    // Impede a navegação quando o usuário fez um clique prolongado
     if (longPressRef.current) {
       event.preventDefault();
       event.stopPropagation();
@@ -64,7 +62,7 @@ export function Movie({
   return (
     <div
       {...rest}
-      className={`w-full flex flex-row items-center pb-4 text-left ${rest.className ?? ""}`}
+      className={`w-full flex flex-row items-center p-3 mb-3 rounded-lg bg-surface border border-transparent hover:border-border-app hover:bg-surface-elevated transition-all duration-200 text-left ${rest.className ?? ""}`}
       onPointerDown={handlePointerDown}
       onPointerUp={handlePointerEnd}
       onPointerLeave={handlePointerEnd}
@@ -75,7 +73,7 @@ export function Movie({
       {saved && (
         <img
           src={list}
-          alt="salvo"
+          alt="Salvo"
           className="mr-2 w-5 h-5"
         />
       )}
@@ -86,22 +84,15 @@ export function Movie({
         className="w-20 h-20 rounded-md object-cover"
       />
 
-      <div className="flex-1 ml-3">
+      <div className="flex-1 ml-3 min-w-0">
         <div className="flex flex-row items-center">
-          <h3 className="text-slate-100 font-subtitle text-base flex-1">
+          <h3 className="text-text-primary font-subtitle text-base flex-1">
             {data.title}
           </h3>
         </div>
 
         <p
-          className="
-            text-slate-400
-            text-xs
-            leading-5
-            mt-0.5
-            text-justify
-            overflow-hidden
-          "
+          className="text-text-secondary text-xs leading-5 mt-0.5 text-justify overflow-hidden"
           style={{
             display: "-webkit-box",
             WebkitLineClamp: 4,

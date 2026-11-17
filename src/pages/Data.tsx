@@ -18,13 +18,17 @@ export default function Data() {
   const listMovies = useListStore((state) => state.movies);
   const add = useListStore((state) => state.add);
 
-  const selectedMovie = movies.find((movie) => movie.id.toString() === id);
+  const selectedMovie = movies.find(
+    (movie) => movie.id.toString() === id
+  );
 
   if (!selectedMovie) {
     return <Navigate to="/" replace />;
   }
 
-  const saved = listMovies.find((item) => item.id.toString() === id);
+  const saved = listMovies.find(
+    (item) => item.id.toString() === id
+  );
 
   function addToList() {
     if (!selectedMovie) return;
@@ -41,9 +45,9 @@ export default function Data() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-900 flex flex-col">
+    <div className="min-h-screen bg-background flex flex-col">
       <div className="p-5 mt-8 flex-1 flex flex-col">
-        <h1 className="text-violet-400 text-2xl font-heading my-2">
+        <h1 className="text-text-heading text-2xl font-heading my-2 font-bold">
           {selectedMovie.title}
         </h1>
 
@@ -54,7 +58,7 @@ export default function Data() {
         />
 
         <div className="overflow-y-auto mt-5">
-          <p className="text-slate-400 font-body text-base leading-6 mb-6 text-justify">
+          <p className="text-text-secondary font-body text-base leading-6 mb-6 text-justify">
             {selectedMovie.overview}
           </p>
         </div>
@@ -63,11 +67,14 @@ export default function Data() {
       <div className="p-5 pb-8 flex flex-col gap-5">
         {saved ? (
           <div className="h-12 flex items-center justify-center">
-            <span className="text-slate-300 font-heading text-base mx-2 italic text-center font-bold">
+            <span className="text-text-primary font-heading text-base mx-2 italic font-bold text-center">
               Filme já está salvo
             </span>
 
-            <Check size={20} color="#cbd5e1" />
+            <Check
+              size={20}
+              className="text-primary-selected"
+            />
           </div>
         ) : (
           <Button onClick={addToList} icon={true}>

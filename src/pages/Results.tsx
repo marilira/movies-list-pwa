@@ -10,8 +10,9 @@ export default function Results() {
   const movies = useDataStore((state) => state.movies);
 
   return (
-    <div className="flex flex-col min-h-screen pt-8 bg-slate-900">
+    <div className="flex flex-col min-h-screen pt-8 bg-background">
       <Header title="Resultados" backButton />
+
       {loading ? (
         <Loading />
       ) : movies && movies.length > 0 ? (
@@ -31,7 +32,7 @@ export default function Results() {
           ))}
         </div>
       ) : (
-        <p className="font-body text-slate-400 text-center my-8">
+        <p className="font-body text-text-secondary text-center my-8">
           Nenhum filme encontrado :(
         </p>
       )}

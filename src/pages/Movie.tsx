@@ -20,11 +20,11 @@ export default function Movie() {
   const add = useListStore((state) => state.add);
 
   const handleCategorySelect = useCategoryStore(
-    (state) => state.handleCategorySelect,
+    (state) => state.handleCategorySelect
   );
 
   const movie = movies.find(
-    (movie: MovieListProps) => movie.id.toString() === id,
+    (movie: MovieListProps) => movie.id.toString() === id
   );
 
   function handleAddToWatched() {
@@ -39,7 +39,7 @@ export default function Movie() {
     if (!movie) return;
 
     const confirmed = window.confirm(
-      `Deseja remover ${movie.title} de Assistidos?`,
+      `Deseja remover ${movie.title} de Assistidos?`
     );
 
     if (confirmed) {
@@ -52,7 +52,7 @@ export default function Movie() {
   }
 
   return (
-    <div className="min-h-screen pt-8 pb-8 bg-slate-900 flex flex-col">
+    <div className="min-h-screen pt-8 pb-8 bg-background flex flex-col">
       <img
         src={`${IMAGE_PATH}${movie.poster_path}`}
         alt={`Pôster de ${movie.title}`}
@@ -60,12 +60,12 @@ export default function Movie() {
       />
 
       <div className="p-5 mt-8 flex-1 flex flex-col">
-        <h1 className="text-violet-400 text-2xl font-heading my-2">
+        <h1 className="text-text-heading text-2xl font-heading my-2 font-bold">
           {movie.title}
         </h1>
 
         <div className="overflow-y-auto">
-          <p className="text-slate-400 font-body text-base leading-6 mb-6 text-justify">
+          <p className="text-text-secondary font-body text-base leading-6 mb-6 text-justify">
             {movie.overview}
           </p>
         </div>

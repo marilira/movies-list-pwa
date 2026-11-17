@@ -34,7 +34,9 @@ export default function Home() {
 
   // Remover filme da lista
   function handleMovieRemove(movie: MovieListProps) {
-    const confirmed = window.confirm(`Deseja remover ${movie.title} da lista?`);
+    const confirmed = window.confirm(
+      `Deseja remover ${movie.title} da lista?`
+    );
 
     if (confirmed) {
       listStore.remove(movie.id);
@@ -45,7 +47,7 @@ export default function Home() {
   function renderMovies(movies: MovieListProps[]) {
     if (movies.length === 0) {
       return (
-        <p className="font-body text-slate-400 text-center my-8">
+        <p className="font-body text-text-secondary text-center my-8">
           {watched
             ? "Você não assistiu filmes ainda."
             : "Sua lista de filmes está vazia."}
@@ -57,7 +59,10 @@ export default function Home() {
       <div className="flex-1 p-5 pb-24 overflow-y-auto">
         {movies.map((movie) => (
           <Link key={movie.id} to={`/movie/${movie.id}`}>
-            <Movie data={movie} onLongPress={() => handleMovieRemove(movie)} />
+            <Movie
+              data={movie}
+              onLongPress={() => handleMovieRemove(movie)}
+            />
           </Link>
         ))}
       </div>
@@ -65,7 +70,7 @@ export default function Home() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen pt-8 bg-slate-900">
+    <div className="flex flex-col min-h-screen pt-8 bg-background">
       <Header title="Minha lista" />
 
       {/* Categorias */}

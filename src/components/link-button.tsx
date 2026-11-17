@@ -10,7 +10,7 @@ export function LinkButton({
 }: LinkButtonProps) {
   return (
     <Link
-      className="text-slate-300 text-center text-base font-body"
+      className="text-text-secondary hover:text-primary-light text-center text-base font-body transition-colors duration-200 cursor-pointer"
       {...rest}
     >
       {title}

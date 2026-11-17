@@ -13,18 +13,20 @@ type ButtonTextProps = {
 function Button({ children, icon = false, ...rest }: ButtonProps) {
   return (
     <button
-      className="h-12 bg-green-400 rounded-md flex items-center justify-center flex-row cursor-pointer"
+      className="h-12 bg-primary hover:bg-primary-light text-text-primary rounded-md flex items-center justify-center flex-row cursor-pointer transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
       {...rest}
     >
       {children}
-      {icon && <Check size={20} />}
+      {icon && <Check size={20} className="ml-2" />}
     </button>
   );
 }
 
 function ButtonText({ children }: ButtonTextProps) {
   return (
-    <span className="textblack font-heading text-base mx-2">{children}</span>
+    <span className="text-text-primary font-heading text-base mx-2">
+      {children}
+    </span>
   );
 }
 

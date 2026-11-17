@@ -57,7 +57,7 @@ export default function Search() {
   };
 
   return (
-    <div className="min-h-screen pt-8 bg-slate-900 flex flex-col">
+    <div className="min-h-screen pt-8 bg-background flex flex-col">
       <Header title="Buscar filmes" icon={false} />
 
       <form

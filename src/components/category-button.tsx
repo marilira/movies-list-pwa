@@ -30,23 +30,25 @@ export function CategoryButton({
   return (
     <button
       className={clsx(
-        "bg-slate-800 px-4 h-12 rounded-md flex items-center justify-center cursor-pointer",
-        isSelected && "border-2 border-lime-300"
+        "bg-surface px-4 h-12 rounded-md flex items-center justify-center cursor-pointer transition-all duration-200",
+        isSelected
+          ? "border-2 border-primary-light bg-surface-elevated"
+          : "border-2 border-transparent hover:bg-surface-elevated"
       )}
       {...rest}
     >
       {isSelected ? (
         <div className="flex flex-row items-center">
-          <span className="text-slate-100 font-subtitle text-sm">
+          <span className="text-text-primary font-subtitle text-sm">
             {title}
           </span>
 
-          <span className="text-slate-100 font-subtitle text-sm bg-gray-700 ml-2 px-1 rounded-md">
+          <span className="text-text-primary font-subtitle text-sm bg-primary px-2 ml-2 rounded-md">
             {qtd}
           </span>
         </div>
       ) : (
-        <span className="text-slate-100 font-subtitle text-sm">
+        <span className="text-text-secondary font-subtitle text-sm">
           {title}
         </span>
       )}
